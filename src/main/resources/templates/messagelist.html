@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:replace="base :: csslinks"></th:block>
+    <title>Message Sender - Home Page</title>
+</head>
+<body>
+<nav th:replace="base :: navbar"></nav>
+<div class="jumbotron jumbotron-fluid text-center">
+    <div class="jumbotron text-sm-center">
+        <h1>Message Sender</h1>
+    </div>
+</div>
+<br/>
+<div class="container jumbotron" th:if="${search}!=null"
+     th:inline="text">You searched for [[${search}]]:</div>
+<div class="container" th:each="eachMessage:${messages}">
+    <div class="jumbotron">
+        <ul class="list-group">
+            <li class="list-group-item"><span th:text="${eachMessage.content}"></span></li>
+            <li class="list-group-item">
+                <strong><span th:text="${#lists.size(eachMessage.recipients)>0}
+                ?'Recipient(s):':'No message sent'"></span></strong>
+                <div th:each="eachRecipient:${eachMessage.recipients}">
+                    <span th:text="${eachRecipient.recipientName}"> </span></div>
+            </li>
+        </ul>
+        <a class="like" th:href="@{/like/{id}(id=${eachMessage.id})}">
+            <span class="heart"></span>
+            <input class="qty1" name="qty1" readonly="readonly"
+                   type="text" th:value="${eachMessage.likeCounter}" />
+        </a><br/><br/>
+
+        <a th:href="@{/delete/{id}(id=${eachMessage.id})}" role="button">
+            <button class="btn btn-info btn-lg">Delete</button></a><br />
+        <br/>
+    </div>
+</div>
+<th:block th:replace="base :: jslinks"></th:block>
+</body>
+</html>

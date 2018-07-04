@@ -1,0 +1,73 @@
+body {
+    background-color: lightgrey;
+}
+
+.container {
+    background:rgba(255,255,255,0.9);
+}
+
+label {
+    font-weight: bold;
+}
+
+.jumbotron-fluid
+{
+    background: url("/img/email_background.jpg");
+    background-position:cover;
+    background-repeat: no-repeat;
+}
+
+.text-sm-center {
+    font-family: 'Courgette', cursive;
+    border-radius: 10px;
+    background-color: cornsilk;
+    color: black;
+    padding: 5px;
+}
+
+.dish-image {
+    width: 100%;
+    display: block;
+    vertical-align: bottom;
+}
+
+.qty1 {
+    border: none;
+    background: transparent;
+    color: black;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 3em;
+    margin-top: 1em;
+    text-transform: uppercase;
+}
+
+.heart {
+  background-color: red;
+  display: inline-block;
+  height: 30px;
+  margin: 0 20px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  width: 30px;
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  background-color: red;
+  border-radius: 50%;
+  height: 30px;
+  position: absolute;
+  width: 30px;
+}
+
+.heart:before {
+  top: -15px;
+  left: 0;
+}
+
+.heart:after {
+  left: 15px;
+  top: 0;
+}
